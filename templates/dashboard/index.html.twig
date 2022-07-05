@@ -238,6 +238,16 @@
         </div>
     </div>
 {% endblock %}
+{% block meta %}
+    <link rel="canonical" href="{{ absolute_url(path('app_dashboard')) }}" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type" content="Item" />
+    <meta property="og:title" content="Backoffice" />
+    <meta property="og:description" content="Tableau de board" />
+    <meta property="og:url" content="{{ absolute_url(path('app_dashboard')) }}" />
+    <meta property="og:site_name" content="ROTARY BIETRY" />
+    <meta property="og:image" content="{{ absolute_url(asset('build/ressources/images/logo-opportunite2-01.png')) }}" />
+{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
