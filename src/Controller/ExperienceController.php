@@ -6,6 +6,7 @@ use App\Entity\Experience;
 use App\Form\ExperienceType;
 use App\Repository\ActiviteRepository;
 use App\Repository\ExperienceRepository;
+use App\Utility\Utility;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,10 +16,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class ExperienceController extends AbstractController
 {
 	private $activiteRepository;
+	private $utility;
 	
-	public function __construct(ActiviteRepository $activiteRepository)
+	public function __construct(ActiviteRepository $activiteRepository, Utility $utility)
 	{
 		$this->activiteRepository = $activiteRepository;
+		$this->utility = $utility;
 	}
 	
     #[Route('/', name: 'app_experience_index', methods: ['GET'])]
@@ -38,6 +41,8 @@ class ExperienceController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $experienceRepository->add($experience, true);
+			
+			$this->utility->newSession($experience->getId());
 
             return $this->redirectToRoute('app_activite_new', ['experience' => $experience->getId()], Response::HTTP_SEE_OTHER);
         }

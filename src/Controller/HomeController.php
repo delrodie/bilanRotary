@@ -13,4 +13,10 @@ class HomeController extends AbstractController
     {
         return $this->redirectToRoute('app_experience_new');
     }
+	
+	#[Route('/bilan', name:'app_home_bilan')]
+	public function bilan()
+	{
+		return $this->render('home/index.html.twig');
+	}
 }
