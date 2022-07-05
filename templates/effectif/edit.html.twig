@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Effectif{% endblock %}
+
+{% block body %}
+    <h1>Edit Effectif</h1>
+
+    {{ include('effectif/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_effectif_index') }}">back to list</a>
+
+    {{ include('effectif/_delete_form.html.twig') }}
+{% endblock %}

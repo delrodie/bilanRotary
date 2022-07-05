@@ -282,4 +282,9 @@ header h3 {
   padding: 30px;
 }
 
+h3 {
+  font-weight: bold;
+  color: #8D288F;
+}
+
 /*# sourceMappingURL=style.css.map */
