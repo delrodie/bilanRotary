@@ -39,7 +39,7 @@
                                                             <tbody>
                                                             {% set q1=0 %}{% set q2=0 %}{% set q3=0 %}{% set q4=0 %}{% set q5=0 %}{% set q6=0 %}{% set q7=0 %}
                                                             {% set q8=0 %}{% set q9=0 %}{% set q10=0 %}{% set q11=0 %}{% set q12=0 %}{% set q13=0 %}
-                                                            {% set pourcentage = 100/experiences|length %}
+                                                            {% set pourcentage = 100/experiences|length ? experiences|length : '1' %}
                                                             {% for experience in experiences %}
                                                                 {% set q1 = q1 + experience.q1 %}{% set q2 = q2 + experience.q2 %}{% set q3 = q3 + experience.q3 %}
                                                                 {% set q4 = q4 + experience.q4 %}{% set q5 = q5 + experience.q5 %}{% set q6 = q6 + experience.q6 %}
@@ -114,7 +114,7 @@
                                                             {% set q1=0 %}{% set q2=0 %}{% set q3=0 %}{% set q4=0 %}{% set q5=0 %}{% set q6=0 %}{% set q7=0 %}
                                                             {% set q8=0 %}{% set q9=0 %}{% set q10=0 %}{% set q11=0 %}{% set q12=0 %}{% set q13=0 %}{% set q14=0 %}
                                                             {% set q15=0 %}{% set q16=0 %}
-                                                            {% set pourcentage = 100/effectifs|length %}
+                                                            {% set pourcentage = 100/effectifs|length ? effectifs|length : '1' %}
                                                             {% for effectif in effectifs %}
                                                                 {% set q1 = q1 + effectif.q1 %}{% set q2 = q2 + effectif.q2 %}{% set q3 = q3 + effectif.q3 %}
                                                                 {% set q4 = q4 + effectif.q4 %}{% set q5 = q5 + effectif.q5 %}{% set q6 = q6 + effectif.q6 %}
@@ -156,7 +156,7 @@
                                                             <tbody>
                                                             {% set q1=0 %}{% set q2=0 %}{% set q3=0 %}{% set q4=0 %}{% set q5=0 %}{% set q6=0 %}{% set q7=0 %}
                                                             {% set q8=0 %}{% set q9=0 %}{% set q10=0 %}{% set q11=0 %}{% set q12=0 %}{% set q13=0 %}
-                                                            {% set pourcentage = 100/images|length %}
+                                                            {% set pourcentage = 100/images|length ? images|length : '1' %}
                                                             {% for image in images %}
                                                                 {% set q1 = q1 + image.q1 %}{% set q2 = q2 + image.q2 %}{% set q3 = q3 + image.q3 %}
                                                                 {% set q4 = q4 + image.q4 %}{% set q5 = q5 + image.q5 %}{% set q6 = q6 + image.q6 %}
@@ -181,7 +181,7 @@
                                                     </div>
                                                     <div class="tab-pane fade" id="fonctionnement-vertical" role="tabpanel" aria-labelledby="fonctionnement">
 
-                                                        <h3 class="mb-5">Gestion etfonctionnement </h3>
+                                                        <h3 class="mb-5">Gestion et fonctionnement </h3>
 
                                                         <table class="table table-striped table-bordered mt-5" id="rotary_fonctionnement" style="width: 100%;">
                                                             <thead>
