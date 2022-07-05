@@ -104,4 +104,10 @@
 			
 			return true;
 		}
+		
+		public function currentSession()
+		{
+			$id = $this->session->get('encours');
+			 return true;
+		}
 	}
