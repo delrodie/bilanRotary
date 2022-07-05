@@ -37,9 +37,10 @@
                                                             </tr>
                                                             </thead>
                                                             <tbody>
+                                                            {% set experence_dividende = experiences|length ? experiences|length : 1 %}
                                                             {% set q1=0 %}{% set q2=0 %}{% set q3=0 %}{% set q4=0 %}{% set q5=0 %}{% set q6=0 %}{% set q7=0 %}
                                                             {% set q8=0 %}{% set q9=0 %}{% set q10=0 %}{% set q11=0 %}{% set q12=0 %}{% set q13=0 %}
-                                                            {% set pourcentage = 100/experiences|length ? experiences|length : '1' %}
+                                                            {% set pourcentage = 100/experence_dividende %}
                                                             {% for experience in experiences %}
                                                                 {% set q1 = q1 + experience.q1 %}{% set q2 = q2 + experience.q2 %}{% set q3 = q3 + experience.q3 %}
                                                                 {% set q4 = q4 + experience.q4 %}{% set q5 = q5 + experience.q5 %}{% set q6 = q6 + experience.q6 %}
@@ -75,9 +76,10 @@
                                                             </tr>
                                                             </thead>
                                                             <tbody>
+                                                            {% set activite_dividende = activites|length ? activites|length : 1 %}
                                                             {% set q1=0 %}{% set q2=0 %}{% set q3=0 %}{% set q4=0 %}{% set q5=0 %}{% set q6=0 %}{% set q7=0 %}
                                                             {% set q8=0 %}{% set q9=0 %}{% set q10=0 %}{% set q11=0 %}{% set q12=0 %}{% set q13=0 %}
-                                                            {% set pourcentage = 100/activites|length %}
+                                                            {% set pourcentage = 100/ activite_dividende %}
                                                             {% for activite in activites %}
                                                                 {% set q1 = q1 + activite.q1 %}{% set q2 = q2 + activite.q2 %}{% set q3 = q3 + activite.q3 %}
                                                                 {% set q4 = q4 + activite.q4 %}{% set q5 = q5 + activite.q5 %}{% set q6 = q6 + activite.q6 %}
@@ -111,10 +113,11 @@
                                                             </tr>
                                                             </thead>
                                                             <tbody>
+                                                            {% set effectif_dividende = effectifs|length ? effectifs|length : '1' %}
                                                             {% set q1=0 %}{% set q2=0 %}{% set q3=0 %}{% set q4=0 %}{% set q5=0 %}{% set q6=0 %}{% set q7=0 %}
                                                             {% set q8=0 %}{% set q9=0 %}{% set q10=0 %}{% set q11=0 %}{% set q12=0 %}{% set q13=0 %}{% set q14=0 %}
                                                             {% set q15=0 %}{% set q16=0 %}
-                                                            {% set pourcentage = 100/effectifs|length ? effectifs|length : '1' %}
+                                                            {% set pourcentage = 100/ effectif_dividende %}
                                                             {% for effectif in effectifs %}
                                                                 {% set q1 = q1 + effectif.q1 %}{% set q2 = q2 + effectif.q2 %}{% set q3 = q3 + effectif.q3 %}
                                                                 {% set q4 = q4 + effectif.q4 %}{% set q5 = q5 + effectif.q5 %}{% set q6 = q6 + effectif.q6 %}
@@ -154,9 +157,10 @@
                                                             </tr>
                                                             </thead>
                                                             <tbody>
+                                                            {% set image_dividende = images|length ? images|length : '1' %}
                                                             {% set q1=0 %}{% set q2=0 %}{% set q3=0 %}{% set q4=0 %}{% set q5=0 %}{% set q6=0 %}{% set q7=0 %}
                                                             {% set q8=0 %}{% set q9=0 %}{% set q10=0 %}{% set q11=0 %}{% set q12=0 %}{% set q13=0 %}
-                                                            {% set pourcentage = 100/images|length ? images|length : '1' %}
+                                                            {% set pourcentage = 100/ image_dividende %}
                                                             {% for image in images %}
                                                                 {% set q1 = q1 + image.q1 %}{% set q2 = q2 + image.q2 %}{% set q3 = q3 + image.q3 %}
                                                                 {% set q4 = q4 + image.q4 %}{% set q5 = q5 + image.q5 %}{% set q6 = q6 + image.q6 %}
@@ -192,9 +196,10 @@
                                                             </tr>
                                                             </thead>
                                                             <tbody>
+                                                            {% set fonctionnement_dividende = fonctionnements|length ? fonctionnements|length : '1' %}
                                                             {% set q1=0 %}{% set q2=0 %}{% set q3=0 %}{% set q4=0 %}{% set q5=0 %}{% set q6=0 %}{% set q7=0 %}
                                                             {% set q8=0 %}{% set q9=0 %}{% set q10=0 %}{% set q11=0 %}{% set q12=0 %}{% set q13=0 %}{% set q14=0 %}
-                                                            {% set pourcentage = 100/fonctionnements|length ? fonctionnements|length : '1' %}
+                                                            {% set pourcentage = 100/ fonctionnement_dividende %}
                                                             {% for fonctionnement in fonctionnements %}
                                                                 {% set q1 = q1 + fonctionnement.q1 %}{% set q2 = q2 + fonctionnement.q2 %}{% set q3 = q3 + fonctionnement.q3 %}
                                                                 {% set q4 = q4 + fonctionnement.q4 %}{% set q5 = q5 + fonctionnement.q5 %}{% set q6 = q6 + fonctionnement.q6 %}
