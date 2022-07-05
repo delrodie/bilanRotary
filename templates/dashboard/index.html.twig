@@ -194,7 +194,7 @@
                                                             <tbody>
                                                             {% set q1=0 %}{% set q2=0 %}{% set q3=0 %}{% set q4=0 %}{% set q5=0 %}{% set q6=0 %}{% set q7=0 %}
                                                             {% set q8=0 %}{% set q9=0 %}{% set q10=0 %}{% set q11=0 %}{% set q12=0 %}{% set q13=0 %}{% set q14=0 %}
-                                                            {% set pourcentage = 100/fonctionnements|length %}
+                                                            {% set pourcentage = 100/fonctionnements|length ? fonctionnements|length : '1' %}
                                                             {% for fonctionnement in fonctionnements %}
                                                                 {% set q1 = q1 + fonctionnement.q1 %}{% set q2 = q2 + fonctionnement.q2 %}{% set q3 = q3 + fonctionnement.q3 %}
                                                                 {% set q4 = q4 + fonctionnement.q4 %}{% set q5 = q5 + fonctionnement.q5 %}{% set q6 = q6 + fonctionnement.q6 %}
