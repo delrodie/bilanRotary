@@ -40,6 +40,8 @@ class FonctionnementController extends AbstractController
             $fonctionnementRepository->add($fonctionnement, true);
 			
 			$this->utility->addFlag($image, 4);
+			
+			$this->utility->clearSession();
 
             return $this->redirectToRoute('app_home_bilan', [], Response::HTTP_SEE_OTHER);
         }

@@ -35,6 +35,10 @@ class ExperienceController extends AbstractController
     #[Route('/new', name: 'app_experience_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ExperienceRepository $experienceRepository): Response
     {
+		// Gestion de la session
+	    $currentSession = $this->utility->currentSession();
+	    if ($currentSession) return $this->redirect($currentSession);
+		
         $experience = new Experience();
         $form = $this->createForm(ExperienceType::class, $experience);
         $form->handleRequest($request);

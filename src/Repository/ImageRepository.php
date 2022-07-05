@@ -38,6 +38,21 @@ class ImageRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+	
+	/**
+	 * @throws \Doctrine\ORM\NonUniqueResultException
+	 */
+	public function findOneByExperience($experience)
+	{
+		return $this->createQueryBuilder('i')
+			->leftJoin('i.effectif', 'ef')
+			->leftJoin('ef.activite', 'a')
+			->leftJoin('a.experience', 'ex')
+			->where('ex.id = :experience')
+			->setParameter('experience', $experience)
+			->getQuery()->getOneOrNullResult()
+			;
+	}
 
 //    /**
 //     * @return Image[] Returns an array of Image objects

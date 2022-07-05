@@ -105,9 +105,45 @@
 			return true;
 		}
 		
+		/**
+		 * @throws \Doctrine\ORM\NonUniqueResultException
+		 */
 		public function currentSession()
 		{
-			$id = $this->session->get('encours');
-			 return true;
+			$experience = $this->experienceRepository->findOneBy(['id' => $this->session->get('encours')]);
+			
+			// Si aucune experience alors initialiser le formulaire
+			// Sinon rediriger vers le formulaire adequat
+			if (!$experience) return false;
+			else{
+				$flag = $experience->getFlag();
+				if (!$flag){
+					$url = $this->urlGenerator->generate('app_activite_new',['experience' => $experience->getId()]);
+				}
+				elseif($flag === 1){
+					$activite = $this->activiteRepository->findOneBy(['experience' => $experience->getId()]);
+					$url = $this->urlGenerator->generate('app_effectif_new',['activite' => $activite->getId()]);
+				}
+				elseif($flag === 2){
+					$effectif = $this->effectifRepository->findOneByExperience($experience->getId());
+					$url = $this->urlGenerator->generate('app_image_new', ['effectif' => $effectif->getId()]);
+				}
+				elseif ($flag === 3){
+					$image = $this->imageRepository->findOneByExperience($experience->getId());
+					$url = $this->urlGenerator->generate('app_fonctionnement_new',['image' => $image->getId()]);
+				}
+				else{
+					$url = $this->urlGenerator->generate('app_home_bilan');
+				}
+				
+				return $url;
+			}
+		}
+		
+		public function clearSession(): bool
+		{
+			$this->session->clear();
+			
+			return true;
 		}
 	}
